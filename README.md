@@ -13,7 +13,7 @@ $ ./go-sample-app
 ```bash
 $ curl http://localhost:8080?name=Nofar
 Hello, Nofar 
-Test1
+Test123123123
 ``` 
 Testing 123456
 khkk
