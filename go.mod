@@ -1,4 +1,4 @@
-module github.com/td-harness/goHelloWorldServer
+
 
 go 1.15
 
