@@ -69,6 +69,6 @@ pipeline:
                       ls -alR
                       rm -rf goHelloWorldServer
                       git clone https://github.com/td-harness/goHelloWorldServer.git
-                      cd goHelloWorldServer 
+                      cd /harness/goHelloWorldServer 
                       go build
                   description: test2
