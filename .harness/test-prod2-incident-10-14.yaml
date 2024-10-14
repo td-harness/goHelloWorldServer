@@ -67,6 +67,7 @@ pipeline:
                     command: |-
                       #!/bin/bash
                       ls -alR
+                      rm -rf goHelloWorldServer
                       git clone https://github.com/td-harness/goHelloWorldServer.git
                       cd goHelloWorldServer 
                       go build
