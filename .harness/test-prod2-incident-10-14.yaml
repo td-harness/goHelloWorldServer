@@ -71,5 +71,6 @@ pipeline:
                       rm -rf goHelloWorldServer
                       git clone https://github.com/td-harness/goHelloWorldServer.git
                       cd /harness/goHelloWorldServer 
+                      go mod init
                       go build
                   description: test2
