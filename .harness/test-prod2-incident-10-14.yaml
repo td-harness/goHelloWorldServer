@@ -8,8 +8,9 @@ pipeline:
     ci:
       codebase:
         connectorRef: TestCIIncident
-        repoName: scripts
+        repoName: goHelloWorldServer
         build: <+input>
+        sparseCheckout: []
   stages:
     - stage:
         name: Test-Inc-10-14
@@ -37,7 +38,7 @@ pipeline:
                   spec:
                     connectorRef: TestCIIncident
                     repoName: scripts
-                    privileged: true
+                    privileged: false
                     build:
                       type: branch
                       spec:
