@@ -56,3 +56,18 @@ pipeline:
                       git clone https://github.com/td-harness/goHelloWorldServer.git
                       ls -alR
                   description: test
+              - step:
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
+                  spec:
+                    connectorRef: account.harnessImage
+                    image: golang:1.15
+                    shell: Sh
+                    command: |-
+                      #!/bin/bash
+                      ls -alR
+                      git clone https://github.com/td-harness/goHelloWorldServer.git
+                      cd goHelloWorldServer 
+                      go build
+                  description: test2
