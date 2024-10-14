@@ -1,0 +1,58 @@
+pipeline:
+  name: test-prod2-incident-10-14
+  identifier: testprod2incident1014
+  projectIdentifier: PROD2CIINCIDENT
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: TestCIIncident
+        repoName: scripts
+        build: <+input>
+  stages:
+    - stage:
+        name: Test-Inc-10-14
+        identifier: TestInc1014
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: k8s129x
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: GitClone
+                  name: GitClone_1
+                  identifier: GitClone_1
+                  spec:
+                    connectorRef: TestCIIncident
+                    repoName: scripts
+                    privileged: true
+                    build:
+                      type: branch
+                      spec:
+                        branch: main
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    image: redhat/ubi:8.8
+                    shell: Sh
+                    command: |-
+                      echo "Testing 123"
+                      microdnf install git -y
+                      git clone https://github.com/td-harness/goHelloWorldServer.git
+                      ls -alR
+                  description: test
