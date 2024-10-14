@@ -48,7 +48,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     connectorRef: account.harnessImage
-                    image: redhat/ubi:8.8
+                    image: redhat/ubi8-minimal:8.8
                     shell: Sh
                     command: |-
                       echo "Testing 123"
